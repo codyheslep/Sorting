@@ -1,3 +1,5 @@
+
+
 describe('Bubble Sort', function () {
   it('handles an empty array', function () {
     expect(bubbleSort([])).toEqual([]);
@@ -11,10 +13,11 @@ describe('Bubble Sort', function () {
     expect(bubbleSort([6, 7, 3, 9, 1])).toEqual([1, 3, 6, 7, 9])
   })
 });
-
 describe("the swap function", function () {
-  spyOn(bubbleSort, "swap").and.callThrough();
+  it("swap is called 14 times", function () {
+    spyOn(window, "swap").and.callThrough();
+    bubbleSort([6, 7, 3, 9, 1]);
+    expect(swap.calls.count()).toEqual(12);
+  });
 });
-it("swap is called 6 times", function () {
-  expect(swap.calls.count()).toEqual(6);
-});
+
